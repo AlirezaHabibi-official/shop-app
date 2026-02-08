@@ -3,9 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shop App</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
+        integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
 </head>
 <body>
+    
+    <!-- header of page -->
+    <header id="header">
+        <div class="container">
+            <!-- navigation link -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-house"></i>صفحه اصلی</a></li>
+                    <li><a href="#"><i class="fa-solid fa-store"></i>محصولات</a></li>
+                    <li><a href="#"><i class="fa-solid fa-circle-info"></i>درباره ما</a></li>
+                    <li><a href="#"><i class="fa-solid fa-square-phone"></i>تماس با ما</a></li>
+                </ul>
+            </nav>
+
+            <!-- header image & title -->
+            <section id="header-section">
+                
+                <!-- header title -->
+                <div class="text">
+                    <h2 class="title">
+                        در 
+                        <b>Shop App</b><br>
+                        راحت تر بخرید!
+                    </h2>
+                    <p class="text">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                    </p>
+                </div>
+
+                <div class="image">
+                    <img src="assests/images/header-img.png" alt="haeder image">  
+                </div>
+            </section>
+        </div>
+    </header>
+
+    <!-- menu bar -->
+    <aside id="aside">
+        
+    </aside>
+    
+    <!-- product listing -->
+    <main id="product" class="container">
+        <section class="product-item">
+            <div class="product-image">
+                <img src="assests/images/1.jpg" alt="product 1"></div>
+            <div class="product-title"><h2>کفش چرم مردانه</h2></div>
+            <div class="product-instock">تعداد موجود: 5</div>
+            <div class="product-data">
+                <div class="product-price">7,800,000</div>
+                <div class="add-to-cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- show product as modal -->
+    <div class="modal">
+        <div class="close">x</div>
+        <div class="image"><img src="assests/images/1.jpg" alt="modal image"></div>
+    </div>
+    
+    <!-- footer -->
+    <footer id="footer">
+        <div class="container">
+            <p>
+                تمامی حقوق این فروشگاه اینترنتی متعلق به
+                <b>Alireza Habibi</b>
+                است.
+            </p>
+        </div>
+    </footer>
+
     
 </body>
 </html>
