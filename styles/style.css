@@ -1,0 +1,205 @@
+/* import reset file for unify browser defaults */
+@import url(reset.css);
+
+/* the normal size of vazir font */
+@font-face {
+    font-family: vazirNormal;
+    src: url('../assests/fonts/vazir.eot');
+    src: url('../assests/fonts/vazir.eot?#iefix') format('embedded-opentype'), url('../assests/fonts/vazir.woff2') format('woff2'), url('../assests/fonts/vazir.woff') format('woff'), url('../assests/fonts/vazir.ttf') format('truetype');
+    font-weight: normal;
+    font-display: swap;
+}
+
+/* the bold size of vazir font */
+@font-face {
+    font-family: vazirBold;
+    src: url('../assests/fonts/vazir-bold.eot');
+    src: url('../assests/fonts/vazir-bold.eot?#iefix') format('embedded-opentype'), url('../assests/fonts/vazir-bold.woff2') format('woff2'), url('../assests/fonts/vazir-bold.woff') format('woff'), url('../assests/fonts/vazir-bold.ttf') format('truetype');
+    font-weight: normal;
+    font-display: swap;
+}
+
+:root {
+  --font-base: vazirNormal;
+  --font-size: 16px;
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --color-0: #ffff;
+  --color-1: #0d6efd;
+  --color-2: #6c757d;
+  --color-3: #F4B000;
+  --color-4: #4B0082;
+  --color-5: #C0C0C0;
+  --color-6: #F5F5F5;
+  --color-7: #15947a;
+  --color-8: #efe3b2;
+  --color-9: #4E342E;
+  --color-10: #3b3b3b;
+
+}
+
+body {
+    font-family: vazirNormal;
+    direction: rtl;
+    background-color: var(--bg-color);
+}
+.container {
+    width: 75rem;
+    margin: 0 auto;
+}
+#header {
+    position: relative;
+    height: 35rem;
+}
+#header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-7);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+    z-index: -1;
+}
+
+/* navigation */
+#nav{
+    padding-top: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+}
+#nav ul{
+    display: flex;
+    float: left;
+}
+#nav ul li a{
+    text-decoration: none;
+    color: var(--color-0);
+    padding: 0.3125rem 0.625rem;
+    transition: 0.1s;
+}
+#nav ul li a:hover{
+    border-bottom: 0.125rem solid var(--color-0);
+    transition: 0.25s;
+}
+#nav ul li a:active{
+    color: var(--color-1);
+    border-bottom: 0.125rem solid var(--color-1);
+    transition: 0.25s;
+}
+nav svg{
+    font-size: 1.25rem;
+    margin-left: 0.3125rem;
+    vertical-align: -0.25rem;
+}
+#nav .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* logo */
+#header #nav #logo img {
+    width: 10rem;
+}
+#header-section {
+    display: flex;
+    justify-content: space-around;
+}
+#header-section .image img {
+    position: relative;
+    top: -5rem;
+    left: 0;
+}
+#header-section .text-box{
+    position: relative;
+    width: 31rem;
+    top: 2rem;
+    right: 3.75rem;
+}
+#header-section .title{
+    font-family: 'vazirBold';
+    font-size: 1.875rem;
+    line-height: 3.125rem;
+    color: var(--color-8);
+}
+#header-section .text{
+    padding: 1rem 0 1rem 1rem;
+    line-height: 1.8rem;
+    font-size: 1.5rem;
+    color: var(--color-8);
+}
+
+/* product */
+#product{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#product .product-item{
+    flex-basis: 250px;
+    border: 1px solid #e0e0e0;
+    margin-top: 25px;
+    border-radius: 3px;
+}
+#product .product-item .product-image img{
+    width: 100%;
+    height: 240px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+#product .product-item .product-title{
+    font-family: vazirBold;
+    padding: 10px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 25px;
+}
+#product .product-item .product-instock{
+    padding:0 10px 10px 0;
+    color: red;
+    font-size: 13px;
+}
+#product .product-item .product-data{
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #e0e0e0;
+    justify-content: space-between;
+    font-size: 14px;
+    padding: 7px 10px;
+}
+#product .product-item .product-data .add-to-cart:hover{
+    cursor: pointer;
+}
+
+/* modal */
+.modal{
+    background-color: var(--color-8);
+    width: 32rem;
+    position: relative;
+    border-radius: 1rem;
+    margin: auto;
+}
+.modal .close {
+    font-size: 2rem;
+    position: absolute;
+    top: -1rem;
+    right: -0.7rem;
+}
+.modal .image{
+    /* position: absolute; */
+    width: 95%;
+    margin: auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+.modal .image img{
+    width: 100%;
+    border-radius: 1rem;
+}
+
+/* footer */
+#footer{
+    background-color: var(--color-7);
+    text-align: center;
+    color: var(--color-0);
+}
+

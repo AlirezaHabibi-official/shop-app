@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop App</title>
-    <link rel="stylesheet" href="styles/reset.css">
+    
     <link rel="stylesheet" href="styles/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
         integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
@@ -18,23 +18,28 @@
         <div class="container">
             <!-- navigation link -->
             <nav id="nav">
+                <div id="logo">
+                    <img src="assests/images/hoodad-logo.png" alt="logo">
+                </div>
+
                 <ul>
-                    <li><a href="#"><i class="fa-solid fa-house"></i>صفحه اصلی</a></li>
-                    <li><a href="#"><i class="fa-solid fa-store"></i>محصولات</a></li>
-                    <li><a href="#"><i class="fa-solid fa-circle-info"></i>درباره ما</a></li>
-                    <li><a href="#"><i class="fa-solid fa-square-phone"></i>تماس با ما</a></li>
+                    <li><a href="#" class="nav-link"><i class="fa-solid fa-house"></i>صفحه اصلی</a></li>
+                    <li><a href="#" class="nav-link"><i class="fa-solid fa-store"></i>محصولات</a></li>
+                    <li><a href="#" class="nav-link"><i class="fa-solid fa-circle-info"></i>درباره ما</a></li>
+                    <li><a href="#" class="nav-link"><i class="fa-solid fa-square-phone"></i>تماس با ما</a></li>
+                    <li><a href="#" class="nav-link"><i class="fa-solid fa-cart-shopping"></i>سبد خرید</a></li>
+               
                 </ul>
+
             </nav>
 
             <!-- header image & title -->
             <section id="header-section">
                 
                 <!-- header title -->
-                <div class="text">
-                    <h2 class="title">
-                        در 
-                        <b>Shop App</b><br>
-                        راحت تر بخرید!
+                <div class="text-box">
+                    <h2 class="title"> 
+                        Shop App<br>
                     </h2>
                     <p class="text">
                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
@@ -71,7 +76,9 @@
 
     <!-- show product as modal -->
     <div class="modal">
-        <div class="close">x</div>
+        <div class="close">
+            <i class="fa-solid fa-circle-xmark"></i>
+        </div>
         <div class="image"><img src="assests/images/1.jpg" alt="modal image"></div>
     </div>
     
