@@ -206,9 +206,7 @@ ul li svg{
 #aside .aside-logo img{
     width: 6rem;
 }
-#aside ul{
-    /* font-size: 1.7rem; */
-}
+
 #aside ul li{
     font-size:1.3rem;
     padding: 0.5rem;
@@ -226,9 +224,9 @@ ul li svg{
 }
 #product .product-item{
     flex-basis: 14rem;
-    border: 1px solid #e0e0e0;
-    margin-top: 25px;
-    border-radius: 3px;
+    border: 0.06rem solid #e0e0e0;
+    margin-top: 1.6rem;
+    border-radius: 0.2rem;
 }
 #product .product-item:hover{
     box-shadow: 0.3rem 0.3rem 0.7rem 0rem rgba(0,0,0,0.3);
@@ -236,10 +234,10 @@ ul li svg{
 }
 #product .product-item .product-title{
     font-family: vazirBold;
-    padding: 10px;
-    height: 50px;
-    font-size: 16px;
-    line-height: 25px;
+    padding: 0.6rem;
+    height: 3rem;
+    font-size: 1rem;
+    line-height: 1.6rem;
 }
 #product .product-item .product-title a{
     text-decoration: none;
@@ -252,22 +250,22 @@ ul li svg{
 #product .product-item .product-image img{
     width: 100%;
     height: auto;
-    padding: 10px;
+    padding: 0.6rem;
     box-sizing: border-box;
 }
 
 #product .product-item .product-instock{
-    padding:0 10px 10px 0;
+    padding:0 0.6rem 0.6rem 0;
     color: red;
-    font-size: 13px;
+    font-size: 0.8rem;
 }
 #product .product-item .product-data{
     display: flex;
     align-items: center;
-    border-top: 1px solid #e0e0e0;
+    border-top: 0.06rem solid #e0e0e0;
     justify-content: space-between;
-    font-size: 14px;
-    padding: 7px 10px;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
 }
 #product .product-item .product-data .add-to-cart:hover{
     cursor: pointer;
