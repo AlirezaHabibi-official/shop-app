@@ -28,12 +28,12 @@
   --color-1: #0d6efd;
   --color-2: #6c757d;
   --color-3: #F4B000;
-  --color-4: #0B1F3B;
-  --color-5: #C0C0C0;
+  --color-4: #a47705;
+  --color-5: #FFE8A3;
   --color-6: #F5F5F5;
   --color-7: #15947a;
   --color-8: #efe3b2;
-  --color-9: #4E342E;
+  --color-9: #0c5849;
   --color-10: #212121;
 
 }
@@ -43,8 +43,12 @@ body {
     direction: rtl;
     background-color: var(--bg-color);
 }
+* {
+    box-sizing: border-box;
+}
 .container {
-    width: 75rem;
+    max-width: 75rem;
+    width: 100%;
     margin: 0 auto;
 }
 #header {
@@ -216,17 +220,123 @@ ul li svg{
 /* product */
 #product{
     width: 100%;
-    margin: 6rem auto;
+    height: 35rem;
+    margin: 12rem 0 5rem 0;
+    background-color: var(--color-3);
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
     align-items: center;
+    justify-content: center;
+}
+#product .product-controls{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+#product .product-controls .search {
+    display: flex;
+    padding: 1rem;
+    gap: 0.3rem;
+}
+#product .product-controls .filter{
+    width: 20rem;
+}
+#product .product-controls button,
+#product .product-controls input,
+#product .product-controls select{
+    border: 0;
+    outline: 0;
+    font-size: 1rem;
+    border-radius: 20rem;
+    padding: 1rem;
+    color: var(--color-9);
+    background-color: var(--color-3);
+    font-family: 'vazirNormal';
+}
+#product .product-controls input {
+    font-weight: bold;
+    box-shadow: inset 0.125rem 0.125rem 0.3rem var(--color-4), inset -0.3rem -0.3rem 0.7rem var(--color-5);
+    width: 12rem;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+}
+#product .product-controls input:focus {
+    box-shadow: inset 0.06rem 0.06rem 0.125rem var(--color-4), inset -0.06rem -0.06rem 0.125rem var(--color-5);    
+}
+#product .product-controls button:hover,
+#product .product-controls select:hover{
+    box-shadow: -0.125rem -0.125rem 0.3rem var(--color-5), 0.125rem 0.125rem 0.3rem var(--color-4);
+}
+#product .product-controls button,
+#product .product-controls select {
+    font-weight: bold;
+    box-shadow: -0.3rem -0.3rem 1.25rem var(--color-5), 0.3rem 0.3rem 1.25rem var(--color-4);
+    cursor: pointer;
+}
+#product .product-controls button:active,
+#product .product-controls select:active {
+    box-shadow: inset 0.06rem 0.06rem 0.125rem var(--color-4), inset -0.06rem -0.06rem 0.125rem var(--color-5);
+}
+#product .product-controls button svg{
+    text-align: center;
+}
+#product .product-controls .filter-btn{
+    width: 5rem;
+    padding: 1rem;
+    border-radius: 20rem;
+}
+
+#product .product-box{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+#product .product-slider-outer{
+    width: 90%;
+    height: 25rem;
+    margin: 0 0.5rem;
+    background-color: var(--bg-color);
+    border-radius: 2rem;
+    overflow: hidden;
+    display: flex;
+}
+#product .product-slider{
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    width: 100%;
+    height: 100%;
+    padding: 0 0.5rem;
+    
+}
+#product .arrow a{
+    font-size: 3rem;
+    color: var(--color-7);
+}
+#product .arrow{
+    z-index: 5;
+    position: relative;
+    margin: 0.5rem;
+}
+#product .right{
+    order: 0;
+    right: 0;
+}
+#product .left{
+    order: 2;
+    left: 0;
 }
 #product .product-item{
-    flex-basis: 14rem;
+    flex: 0 0 15rem;
     border: 0.06rem solid #e0e0e0;
-    margin-top: 1.6rem;
-    border-radius: 0.2rem;
+    border-radius: 0.5rem;
+    order: 1;
 }
 #product .product-item:hover{
     box-shadow: 0.3rem 0.3rem 0.7rem 0rem rgba(0,0,0,0.3);
@@ -273,6 +383,7 @@ ul li svg{
 
 /* modal */
 .modal{
+    display: none;
     background-color: var(--color-8);
     width: 32rem;
     position: relative;
@@ -301,22 +412,89 @@ ul li svg{
 #footer{
     display: flex;
     width: 100%;
+    height: 3rem;
     background-color: var(--color-7);
-    text-align: center;
+    align-items: center;
+    justify-content: center;
     color: var(--color-0);
-    padding: 1rem;
-    margin-top: 1rem;
+}
+#footer p{
+    text-align: center;
+    font-size: 1rem;
 }
 
 
 @media only screen and (max-width: 900px) {
-  #nav ul{
-    display: none;
-  }
-  #nav .menu-bar{
-    display: initial;
-  }
-  #header-section .image{
-    display: none;
-  }
+    #product{
+        margin: 10rem 0 5rem 0;
+    }
+  
+    #nav ul{
+        display: none;
+    }
+    #nav .menu-bar{
+        display: initial;
+    }
+    #header-section .image{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 44rem) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    #product .product-box {
+        position: relative;
+    }
+
+    #product .product-slider {
+        width: 100%;
+        height: 25rem;
+        margin: 0 0.5rem;
+        overflow-x: auto;
+    }
+
+    #product .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+    }
+
+    #product .right {
+        right: 0.5rem;
+    }
+
+    #product .left {
+        left: 0.5rem;
+    }
+}
+@media screen and (max-width: 34rem) {
+    #product{
+        height: 40rem;
+    }
+    #product .product-controls {
+        flex-direction: column;
+        align-items: center;
+        gap: 0rem;
+        margin: 1rem 0;
+    }
+
+    #product .product-controls input {
+        width: 100%;
+    }
+
+    #product .product-controls .search,
+    #product .product-controls .filter {
+        width: 20rem;
+
+    }
+
+    #product .product-controls select {
+        width: 100%;
+    }
 }
