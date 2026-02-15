@@ -232,17 +232,10 @@ ul li svg{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1rem;
     gap: 1rem;
 }
-#product .product-controls .search {
-    display: flex;
-    padding: 1rem;
-    gap: 0.3rem;
-}
-#product .product-controls .filter{
-    width: 20rem;
-}
-#product .product-controls button,
+
 #product .product-controls input,
 #product .product-controls select{
     border: 0;
@@ -265,27 +258,16 @@ ul li svg{
 #product .product-controls input:focus {
     box-shadow: inset 0.06rem 0.06rem 0.125rem var(--color-4), inset -0.06rem -0.06rem 0.125rem var(--color-5);    
 }
-#product .product-controls button:hover,
 #product .product-controls select:hover{
     box-shadow: -0.125rem -0.125rem 0.3rem var(--color-5), 0.125rem 0.125rem 0.3rem var(--color-4);
 }
-#product .product-controls button,
 #product .product-controls select {
     font-weight: bold;
     box-shadow: -0.3rem -0.3rem 1.25rem var(--color-5), 0.3rem 0.3rem 1.25rem var(--color-4);
     cursor: pointer;
 }
-#product .product-controls button:active,
 #product .product-controls select:active {
     box-shadow: inset 0.06rem 0.06rem 0.125rem var(--color-4), inset -0.06rem -0.06rem 0.125rem var(--color-5);
-}
-#product .product-controls button svg{
-    text-align: center;
-}
-#product .product-controls .filter-btn{
-    width: 5rem;
-    padding: 1rem;
-    border-radius: 20rem;
 }
 
 #product .product-box{
@@ -310,6 +292,7 @@ ul li svg{
     justify-content: flex-start;
     align-items: center;
     overflow-x: auto;
+    scroll-behavior: smooth;
     width: 100%;
     height: 100%;
     padding: 0 0.5rem;
@@ -384,28 +367,29 @@ ul li svg{
 /* modal */
 .modal{
     display: none;
-    background-color: var(--color-8);
-    width: 32rem;
-    position: relative;
-    border-radius: 1rem;
-    margin: auto;
-}
-.modal .close {
-    font-size: 2rem;
-    position: absolute;
-    top: -1rem;
-    right: -0.7rem;
-}
-.modal .image{
-    /* position: absolute; */
-    width: 95%;
-    margin: auto;
-    padding: 1rem;
-    box-sizing: border-box;
-}
-.modal .image img{
+    background-color: rgba(0, 0, 0, 0.6);
     width: 100%;
-    border-radius: 1rem;
+    height: 100%;
+    position: fixed;
+    top: 0; left: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+.modal .close-btn {
+    font-size: 3rem;
+    color: var(--color-3);
+    position: absolute;
+    top: 7rem;
+
+}
+.modal .close-btn:hover{
+    cursor: pointer;
+}
+.modal img{
+    width: 30rem;
+    height: 30rem;
+    border-radius: 8px;
 }
 
 /* footer */
@@ -423,8 +407,8 @@ ul li svg{
     font-size: 1rem;
 }
 
-
-@media only screen and (max-width: 900px) {
+/* Media Queries */
+@media only screen and (max-width: 56rem) {
     #product{
         margin: 10rem 0 5rem 0;
     }
@@ -433,10 +417,15 @@ ul li svg{
         display: none;
     }
     #nav .menu-bar{
-        display: initial;
+        display: block;
     }
     #header-section .image{
         display: none;
+    }
+}
+@media only screen and (min-width: 56rem) {
+    #nav .menu-bar{
+        display: none !important;
     }
 }
 

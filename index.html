@@ -6,6 +6,7 @@
     <title>Shop App</title>
     
     <link rel="stylesheet" href="styles/style.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
         integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -21,7 +22,7 @@
                 <div id="logo">
                     <img src="assests/images/logo.jpg" alt="logo">
                 </div>
-                <div class="menu-bar">
+                <div class="menu-bar" onclick="sidebar()">
                     <a href="#"><i class="fa-solid fa-bars"></i></a>
                 </div>
                 <ul>
@@ -57,7 +58,7 @@
 
     <!-- menu bar -->
     <aside id="aside">
-        <div class="close">
+        <div class="close" onclick="sidebar()">
             <a href="#"><i class="fa-solid fa-rectangle-xmark"></i></a>
         </div>
         <div class="aside-logo">
@@ -80,19 +81,16 @@
         <div class="container">
             <div class="product-controls">
                 <div class="search">
-                    <label for="search-btn">
-                        <input type="text" placeholder="مثل لپ تاپ ...">
+                    <label>
+                        <input type="text" id="search-input" placeholder="مثل لپ تاپ ...">
                     </label>
-                    <button class="search-btn" type="button">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
                 </div>
                 <div class="filter">
                     <select id="category" name="category">
                         <option value="">فیلتر بر اساس قیمت</option>
-                        <option value="mobile">زیر دو میلیون</option>
-                        <option value="laptop">دو تا پنج میلیون</option>
-                        <option value="accessory">بیشتر از پنج میلیون</option>
+                        <option value="under-2">زیر دو میلیون</option>
+                        <option value="2-5">دو تا پنج میلیون</option>
+                        <option value="over-5">بیشتر از پنج میلیون</option>
                     </select>
                 </div>
             </div>
@@ -109,131 +107,8 @@
                 </div>
                 <div class="product-slider-outer">
                     <div class="product-slider">
-                        <section class="product-item">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img src="assests/images/1.jpg" alt="product">
-                                </a>
-                            </div>
-                            <div class="product-title">
-                                <a href="">
-                                    <h2>
-                                        کفش چرم مردانه
-                                    </h2>
-                                </a>
-                            </div>
-                            <div class="product-instock">
-                                تعداد موجود: 5
-                            </div>
-                            <div class="product-data">
-                                <div class="product-price">
-                                    7.800.000 تومان
-                                </div>
-                                <div class="add-to-cart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="product-item">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img src="assests/images/2.jpg" alt="product">
-                                </a>
-                            </div>
-                            <div class="product-title">
-                                <a href="">
-                                    <h2>
-                                        عروسک
-                                    </h2>
-                                </a>
-                            </div>
-                            <div class="product-instock">
-                                تعداد موجود: 30
-                            </div>
-                            <div class="product-data">
-                                <div class="product-price">
-                                    900.000 تومان
-                                </div>
-                                <div class="add-to-cart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="product-item">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img src="assests/images/3.jpg" alt="product">
-                                </a>
-                            </div>
-                            <div class="product-title">
-                                <a href="">
-                                    <h2>
-                                        سرویس پخت و پز
-                                    </h2>
-                                </a>
-                            </div>
-                            <div class="product-instock">
-                                تعداد موجود: 18
-                            </div>
-                            <div class="product-data">
-                                <div class="product-price">
-                                    4.300.000 تومان
-                                </div>
-                                <div class="add-to-cart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="product-item">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img src="assests/images/4.jpg" alt="product">
-                                </a>
-                            </div>
-                            <div class="product-title">
-                                <a href="">
-                                    <h2>
-                                        هدفون تسکو
-                                    </h2>
-                                </a>
-                            </div>
-                            <div class="product-instock">
-                                تعداد موجود: 24
-                            </div>
-                            <div class="product-data">
-                                <div class="product-price">
-                                    5.650.000 تومان
-                                </div>
-                                <div class="add-to-cart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="product-item">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img src="assests/images/5.jpg" alt="product">
-                                </a>
-                            </div>
-                            <div class="product-title">
-                                <a href="">
-                                    <h2>
-                                        دستگاه سنگ تراش
-                                    </h2>
-                                </a>
-                            </div>
-                            <div class="product-instock">
-                                تعداد موجود: 17
-                            </div>
-                            <div class="product-data">
-                                <div class="product-price">
-                                    10.400.000 تومان
-                                </div>
-                                <div class="add-to-cart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </div>
-                            </div>
-                        </section>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -242,10 +117,10 @@
 
     <!-- show product as modal -->
     <div class="modal">
-        <div class="close">
+        <div class="close-btn">
             <i class="fa-solid fa-circle-xmark"></i>
         </div>
-        <div class="image"><img src="assests/images/1.jpg" alt="modal image"></div>
+        <img src="assests/images/1.jpg" alt="modal image">
     </div>
     
     <!-- footer -->
@@ -258,7 +133,7 @@
             </p>
         </div>
     </footer>
-
-    
+    <script src="scripts/products.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
