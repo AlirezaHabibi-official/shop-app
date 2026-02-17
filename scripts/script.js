@@ -116,14 +116,12 @@ function applyFilters() {
 // price filter listener
 categorySelect.addEventListener('change', () => {
   currentPriceFilter = categorySelect.value;
-  console.log('price filter:', currentPriceFilter);
   applyFilters();
 });
 
 // search filter listener
 searchInput.addEventListener('input', () => {
   currentSearchQuery = searchInput.value;
-  console.log('search:', currentSearchQuery);
   applyFilters();
 });
 
@@ -132,27 +130,30 @@ renderProducts(products);
 
 
 // Modal showing product
-const modal = document.querySelector('.modal');
-const modalImg = modal.querySelector('.modal img');
-const closeBtn = modal.querySelector('.close-btn');
-const productCards  = document.querySelectorAll('.product-item');
+const modal     = document.querySelector('.modal');
+const modalImg  = modal.querySelector('img');
+const closeBtn  = modal.querySelector('.close-btn');
+const container = document.querySelector('.product-slider');
 
-productCards.forEach(card => {
-  const img = card.querySelector('img');
-  img.addEventListener('click', () => {
-    modal.style.display = 'flex';
-    modalImg.src = img.src;
-  });
+// open modal with event delegation
+container.addEventListener('click', (event) => {
+  // look at target
+  const clickedImg = event.target.closest('.product-item img');
+  // If the image does not click, do nothing.
+  if (!clickedImg) return;
+
+  modal.style.display = 'flex';
+  modalImg.src = clickedImg.src;
 });
 
-// close modal
+// close modal with btn
 closeBtn.addEventListener('click', () => {
   modal.style.display = 'none';
 });
+
+// close modal with background
 modal.addEventListener('click', (event) => {
   if (event.target === modal) {
     modal.style.display = 'none';
   }
 });
-
-

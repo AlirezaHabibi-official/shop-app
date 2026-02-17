@@ -380,7 +380,7 @@ ul li svg{
     font-size: 3rem;
     color: var(--color-3);
     position: absolute;
-    top: 7rem;
+    top: 5rem;
 
 }
 .modal .close-btn:hover{
@@ -461,6 +461,11 @@ ul li svg{
     #product .left {
         left: 0.5rem;
     }
+    .modal img{
+        width: 25rem;
+        height: 25rem;
+        border-radius: 8px;
+}
 }
 @media screen and (max-width: 34rem) {
     #product{
@@ -480,7 +485,6 @@ ul li svg{
     #product .product-controls .search,
     #product .product-controls .filter {
         width: 20rem;
-
     }
 
     #product .product-controls select {
