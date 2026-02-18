@@ -72,27 +72,27 @@ body {
     display: flex;
     justify-content: space-between;
 }
-#nav ul{
+#nav .list ul{
     position: relative;
     display: inline-flex;
     left: 2rem;
 }
-#nav ul li a{
+#nav .list ul li a{
     text-decoration: none;
     color: var(--color-0);
     padding: 0.3rem 0.6rem;
     transition: 0.1s;
 }
-#nav ul li a:hover{
+#nav .list ul li a:hover{
     border-bottom: 0.125rem solid var(--color-0);
     transition: 0.25s;
 }
-#nav ul li a:active{
+#nav .list ul li a:active{
     color: var(--color-8);
     border-bottom: 0.125rem solid var(--color-8);
     transition: 0.25s;
 }
-ul li svg{
+.list ul li svg{
     font-size: 1.25rem;
     margin-left: 0.4rem;
 }
@@ -119,7 +119,7 @@ ul li svg{
 /* logo */
 #nav #logo{
     position: relative;
-    right: 2rem;
+    right: 1rem;
 }
 #nav #logo img {
     width: 6rem;
@@ -140,6 +140,9 @@ ul li svg{
     width: 33rem;
 }
 #header-section .text-box{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     width: rem; 
     position: relative;
     top: 8rem;
@@ -151,7 +154,7 @@ ul li svg{
     color: var(--color-8);
 }
 #header-section .text{
-    padding: 1rem 0 1rem 1rem;
+    padding: 1rem 0;
     line-height: 1.8rem;
     font-size: 1.5rem;
     color: var(--color-8);
@@ -211,7 +214,7 @@ ul li svg{
     width: 6rem;
 }
 
-#aside ul li{
+#aside .list ul li{
     font-size:1.3rem;
     padding: 0.5rem;
 }
@@ -242,6 +245,7 @@ ul li svg{
     outline: 0;
     font-size: 1rem;
     border-radius: 20rem;
+    width: 16rem;
     padding: 1rem;
     color: var(--color-9);
     background-color: var(--color-3);
@@ -249,8 +253,7 @@ ul li svg{
 }
 #product .product-controls input {
     font-weight: bold;
-    box-shadow: inset 0.125rem 0.125rem 0.3rem var(--color-4), inset -0.3rem -0.3rem 0.7rem var(--color-5);
-    width: 12rem;
+    box-shadow: inset 0.125rem 0.125rem 0.3rem var(--color-4), inset -0.3rem -0.3rem 0.7rem var(--color-5); 
     box-sizing: border-box;
     transition: all 0.2s ease-in-out;
     appearance: none;
@@ -396,24 +399,27 @@ ul li svg{
 #footer{
     display: flex;
     width: 100%;
-    height: 3rem;
+    min-height: 3rem;
     background-color: var(--color-7);
     align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
     color: var(--color-0);
 }
 #footer p{
     text-align: center;
     font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 1rem;
 }
 
 /* Media Queries */
 @media only screen and (max-width: 56rem) {
     #product{
-        margin: 10rem 0 5rem 0;
+        margin: 5rem 0 5rem 0;
     }
   
-    #nav ul{
+    #nav .list{
         display: none;
     }
     #nav .menu-bar{
@@ -421,6 +427,9 @@ ul li svg{
     }
     #header-section .image{
         display: none;
+    }
+    #header-section .text-box{
+        align-items: center;
     }
 }
 @media only screen and (min-width: 56rem) {
@@ -484,7 +493,7 @@ ul li svg{
 
     #product .product-controls .search,
     #product .product-controls .filter {
-        width: 20rem;
+        width: 16rem;
     }
 
     #product .product-controls select {
