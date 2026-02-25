@@ -251,7 +251,7 @@ body {
 /* product */
 #product{
     width: 100%;
-    height: 53rem;
+    height: 65rem;
     margin: var(--space-10) 0 var(--space-5) 0;
     background-color: var(--color-Gold);
     display: flex;
@@ -317,7 +317,7 @@ body {
 }
 #product .product-slider-outer{
     width: 90%;
-    height: 40rem;
+    height: 50rem;
     margin: 0 var(--space-1);
     background-color: var(--bg-color);
     border-radius: 3rem;
@@ -355,20 +355,28 @@ body {
 }
 #product .product-item{
     flex: 0 0 24rem;
+    height: 46rem;
     border: 0.1rem solid #e0e0e0;
     border-radius: 1rem;
     order: 1;
+    display: flex;
+    flex-direction: column;
 }
 #product .product-item:hover{
     box-shadow: 0.5rem 0.5rem 1rem 0rem rgba(0,0,0,0.3);
     transition: 0.25s;
 }
 #product .product-item .product-title{
+    direction: ltr;
     font-family: vazirBold;
-    padding: var(--space-1);
+    padding: 0 var(--space-1);
+    margin-top: var(--space-0_5);
     height: 5rem;
     font-size: 1.5rem;
     line-height: 2rem;
+    max-height: 4.2rem;
+    overflow: hidden;
+
 }
 #product .product-item .product-title a{
     text-decoration: none;
@@ -378,23 +386,34 @@ body {
     color: var(--color-Beige);
     transition: 0.25s;
 }
+#product .product-item .product-image{
+    width: 90%;
+    height: 35rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: var(--space-1_5);
+    box-sizing: border-box;
+}
 #product .product-item .product-image img{
     width: 100%;
-    height: auto;
-    padding: var(--space-1);
-    box-sizing: border-box;
+    height: 100%;
+    object-fit: contain;
 }
 
 
 #product .product-item .product-instock{
-    padding: var(--space-0) var(--space-1) var(--space-1) var(--space-0);
+    padding: var(--space-0) var(--space-1);
+    margin: auto var(--space-0) var(--space-1) var(--space-0);
     color: var(--color-Red);
     font-size: 1.3rem;
 }
 #product .product-item .product-data{
     display: flex;
     align-items: center;
-    border-top: 0.1rem solid var(--color-Smoke);
+    border-top: 0.1rem solid #e0e0e0;
     justify-content: space-between;
     font-size: 1.5rem;
     padding: 0.5rem var(--space-1);
@@ -426,7 +445,7 @@ body {
     cursor: pointer;
 }
 .modal .modal-img{
-    width: 50%;
+    width: 30%;
     height: auto;
 }
 .modal img{
@@ -474,7 +493,7 @@ body {
         align-items: center;
     }
     .modal .modal-img{
-        width: 70%;
+        width: 50%;
 
     }
 }
@@ -498,7 +517,6 @@ body {
 
     #product .product-slider {
         width: 100%;
-        height: 40rem;
         margin: 0 var(--space-1);
         overflow-x: auto;
     }

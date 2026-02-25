@@ -1,59 +1,67 @@
-// the function for showing sidebar
+
+// ========================
+// 1) Sidebar
+// ========================
 
 let asideStatus = document.querySelector('#aside');
 let menuBar = document.querySelector('#nav .menu-bar');
 
-function sidebar(){
-    if (asideStatus.style.display=='block'){
-        asideStatus.style.display = 'none';
-        menuBar.style.display = 'block';
-    } else {
-        asideStatus.style.display = 'block';
-        menuBar.style.display = 'none';
-    }
+function sidebar() {
+  if (asideStatus.style.display == 'block') {
+    asideStatus.style.display = 'none';
+    menuBar.style.display = 'block';
+  } else {
+    asideStatus.style.display = 'block';
+    menuBar.style.display = 'none';
+  }
 }
 
-// function for right & left buttom in product
+// ========================
+// 2) Slider arrows
+// ========================
 
 document.addEventListener("DOMContentLoaded", function () {
-    const slider = document.querySelector(".product-slider");
-    const btnLeft = document.querySelector(".arrow.left");
-    const btnRight = document.querySelector(".arrow.right");
+  const slider   = document.querySelector(".product-slider");
+  const btnLeft  = document.querySelector(".arrow.left");
+  const btnRight = document.querySelector(".arrow.right");
 
-    const scrollAmount = 100;
+  const scrollAmount = 100;
 
-    btnRight.addEventListener("click", function (e) {
-      e.preventDefault();
-      slider.scrollBy({
-        left: scrollAmount,
-        top: 0,
-        behavior: "smooth"
-      });
+  btnRight.addEventListener("click", function (e) {
+    e.preventDefault();
+    slider.scrollBy({
+      left: scrollAmount,
+      top: 0,
+      behavior: "smooth"
     });
+  });
 
-    btnLeft.addEventListener("click", function (e) {
-      e.preventDefault();
-      slider.scrollBy({
-        left: -scrollAmount,
-        top: 0,
-        behavior: "smooth"
-      });
+  btnLeft.addEventListener("click", function (e) {
+    e.preventDefault();
+    slider.scrollBy({
+      left: -scrollAmount,
+      top: 0,
+      behavior: "smooth"
     });
+  });
 });
 
-// search & filter & dynamic product showing function
+// ========================
+// 3) Search / Filter / Products
+// ========================
+
+// An array initialized with Fake Store API data
+let products = [];
 
 const productsContainer = document.querySelector('.product-slider');
 const categorySelect    = document.getElementById('category');
 const searchInput       = document.querySelector('#search-input');
 
-// current price filter
-let currentPriceFilter = 'all';
+// current filters
+let currentPriceFilter  = 'all';
+let currentSearchQuery  = '';
 
-// current search filter
-let currentSearchQuery = '';
-
-// render product
+// product render function
 function renderProducts(list) {
   const html = list.map(p => {
     const priceFA   = Number(p.price).toLocaleString('fa-IR');
@@ -91,7 +99,7 @@ function renderProducts(list) {
   productsContainer.innerHTML = html;
 }
 
-// Apply both filters (price + search) to the array and render
+// apply price & search filter
 function applyFilters() {
   let list = [...products];
 
@@ -104,7 +112,7 @@ function applyFilters() {
     list = list.filter(p => p.price > 5000000);
   }
 
-  // Search filter (by name)
+  // search filter
   const q = currentSearchQuery.trim().toLowerCase();
   if (q) {
     list = list.filter(p => p.name.toLowerCase().includes(q));
@@ -125,33 +133,63 @@ searchInput.addEventListener('input', () => {
   applyFilters();
 });
 
-// first time
-renderProducts(products);
+// ========================
+// 4) Fetch data from Fake Store API
+// ========================
 
+// https://fakestoreapi.com/products
+fetch('https://fakestoreapi.com/products')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+// data is an array of products with fields:
+// { id, title, price, description, category, image }
+    products = data.map((item, index) => ({
+      id: item.id ?? index,
+      name: item.title,
+      // convert $ to Toman
+      price: Math.round(item.price * 160000),
 
-// Modal showing product
+      instock: 20,
+      imgSrc: item.image
+    }));
+
+    // Initially, render after products are loaded
+    renderProducts(products);
+  })
+  .catch(error => {
+    console.error('There has been a problem with your fetch operation:', error);
+    productsContainer.innerHTML = '<p>خطا در دریافت محصولات از سرور.</p>';
+  });
+
+// ========================
+// 5) Modal for displaying large image
+// ========================
+
 const modal     = document.querySelector('.modal');
 const modalImg  = modal.querySelector('img');
 const closeBtn  = modal.querySelector('.close-btn');
 const container = document.querySelector('.product-slider');
 
-// open modal with event delegation
+// Open modal using event delegation
 container.addEventListener('click', (event) => {
-  // look at target
   const clickedImg = event.target.closest('.product-item img');
-  // If the image does not click, do nothing.
   if (!clickedImg) return;
 
   modal.style.display = 'flex';
   modalImg.src = clickedImg.src;
 });
 
-// close modal with btn
+// Close modal with btn
 closeBtn.addEventListener('click', () => {
   modal.style.display = 'none';
 });
 
-// close modal with background
+// Close modal with click on background
 modal.addEventListener('click', (event) => {
   if (event.target === modal) {
     modal.style.display = 'none';
